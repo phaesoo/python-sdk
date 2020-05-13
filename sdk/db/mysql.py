@@ -60,7 +60,7 @@ class MySQLClient:
         self._check_init()
         if self._conn is None:
             self._init_connection()
-        return psql.read_sql(sql, **kwargs)
+        return psql.read_sql(sql, self._conn, **kwargs)
 
     def execute(self, sql, parameter=None):
         self._check_init()
